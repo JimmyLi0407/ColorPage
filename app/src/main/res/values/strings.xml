@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ColorPage</string>
+    <string name="tvTitle">JSON Placeholder</string>
+    <string name="btRequest">Request API</string>
+    <string name="tvid">id</string>
+    <string name="tvtitle">Title</string>
+</resources>
