@@ -28,14 +28,12 @@ class SelectColorActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_color)
-
-
+        ColorData.append(ReadFile(FileName))
+        ColorDataList = JsonParse.getColorJson(ColorData.toString())
     }
 
     override fun onStart() {
         super.onStart()
-        ColorData.append(ReadFile(FileName))
-        ColorDataList = JsonParse.getColorJson(ColorData.toString())
         initview()
     }
 
