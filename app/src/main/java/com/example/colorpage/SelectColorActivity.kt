@@ -3,32 +3,19 @@ package com.example.colorpage
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
-import android.os.AsyncTask
 import android.os.Bundle
-import android.os.Handler
-import android.sax.StartElementListener
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.io.BufferedReader
 import java.io.FileNotFoundException
-import java.io.IOException
 import java.io.InputStreamReader
-import java.net.URL
-import java.security.AccessControlContext
-import javax.net.ssl.HttpsURLConnection
 
 
 class SelectColorActivity : AppCompatActivity(){
@@ -36,7 +23,6 @@ class SelectColorActivity : AppCompatActivity(){
     private var ColorData : StringBuffer = StringBuffer()
     private var JsonParse = JsonParse()
     private var ColorDataList : ArrayList<ColorDataMember> = ArrayList()
-    private var bitmap : Bitmap?= null
 
 
 

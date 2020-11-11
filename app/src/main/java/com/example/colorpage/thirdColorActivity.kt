@@ -1,12 +1,8 @@
 package com.example.colorpage
 
-import android.app.Activity
-import android.content.Context
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_third_color.*
 
 class thirdColorActivity : AppCompatActivity() {

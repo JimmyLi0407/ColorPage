@@ -1,9 +1,7 @@
 package com.example.colorpage
 
 import org.json.JSONArray
-import org.json.JSONException
 import org.json.JSONObject
-import java.util.*
 import kotlin.collections.ArrayList
 
 class JsonParse {
