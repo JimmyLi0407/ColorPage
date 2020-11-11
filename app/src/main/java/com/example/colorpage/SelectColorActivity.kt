@@ -25,7 +25,6 @@ class SelectColorActivity : AppCompatActivity(){
     private var ColorDataList : ArrayList<ColorDataMember> = ArrayList()
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_color)
@@ -38,15 +37,17 @@ class SelectColorActivity : AppCompatActivity(){
         ColorData.append(ReadFile(FileName))
         ColorDataList = JsonParse.getColorJson(ColorData.toString())
         initview()
-
     }
 
     private fun initview() {
+
         val recyclerView = findViewById<RecyclerView>(R.id.list_view)
         val gridLayoutManager = GridLayoutManager(this, 4)
         val colorAdapter = ColorAdapter(this, ColorDataList)
         recyclerView.layoutManager = gridLayoutManager
         recyclerView.adapter = colorAdapter
+
+
     }
 
     private fun ReadFile(filename: String): StringBuffer? {
@@ -78,7 +79,7 @@ class SelectColorActivity : AppCompatActivity(){
             this.colordata = colordata
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorAdapter.viewHolder{
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder{
 
             val cell = LayoutInflater.from(context).inflate(R.layout.color_item, parent, false)
             val viewHolder = viewHolder(cell)
@@ -92,10 +93,14 @@ class SelectColorActivity : AppCompatActivity(){
             return colordata.size
         }
 
-        override fun onBindViewHolder(holder: ColorAdapter.viewHolder, position: Int) {
+        override fun onBindViewHolder(holder: viewHolder, position: Int) {
             val model = colordata[position]
             var bitmap : Bitmap?
             val colornum = model.thumbnailUrl.substringAfterLast("/")
+
+            holder.tvid.setText(model.id)
+
+            holder.tvTitle.setText(model.title)
 
             var LoadColorData = Thread(Runnable {
 
@@ -109,13 +114,6 @@ class SelectColorActivity : AppCompatActivity(){
                    holder.ivImage.setImageBitmap(bitmap)
                }
 
-                holder.tvid.post {
-                    holder.tvid.setText(model.id)
-                }
-
-                holder.tvTitle.post {
-                    holder.tvTitle.setText(model.title)
-                }
             })
 
             LoadColorData.start()
